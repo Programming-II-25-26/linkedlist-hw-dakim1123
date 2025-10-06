@@ -1,3 +1,10 @@
+# LinkedLists HW
+'''
+Problem: Write a function that reverses a LinkedList
+
+Your function should take in the head of a list as a parameter, and retun the head of the reversed linked list 
+'''
+
 #Starter Ccode below including helper functions 
 class Node:
     def __init__(self, data):
@@ -25,4 +32,18 @@ def create_list(values):
 
 def reverse_list(head):
     # Your code here
-    pass
+    prev = None
+    current = head
+    while current != None:
+        next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    return prev
+
+list = [1, 2, 4, 8, 16, 32, 64, 128]
+head = create_list(list)
+print_list(head)
+
+head = reverse_list(head)
+print_list(head)
